@@ -55,6 +55,6 @@ SELECT product_name AS "TenSanPham", price AS "DonGia" FROM product;
 SELECT product_name, price FROM product
 ORDER BY price DESC;
 SELECT product_id, product_name, price FROM product
-WHERE price IS NOT NULL 
+WHERE price IS NOT NULL AND price > 0
 ORDER BY price ASC
 LIMIT 3;
