@@ -122,18 +122,7 @@ select invoice_id, created_date, to_char( created_date,'DD/MM/YYYY') as ngay_mua
 from invoice
 where extract (year from created_date) = 2025 and extract (month from created_date ) = 10 ;	
 
-select c.customer_id , c.customer_name 
-from customer c
-join invoice i on c.customer_id = i.customer_id;
-select i.invoice_id
-from invoice i
-join invoice_detail iv on i.invoice_id = iv.invoice_id ;
-
-select sum(invoice_detail.quantity * invoice_detail.price) as tong_tien
-from invoice_detail ;
-
-select iv.invoice_id , c.customer_name,
-	sum(iv.quantity * iv.price) as tong_tien
+select iv.invoice_id , c.customer_name, sum(iv.quantity * iv.price) as tong_tien
 from invoice_detail iv 
 join invoice i on i.invoice_id  = iv.invoice_id 
 join customer c on c.customer_id = i.customer_id
